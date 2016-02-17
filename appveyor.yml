@@ -3,7 +3,7 @@ os: Visual Studio 2015 RC
 build:
   verbosity: detailed
 artifacts:
-- path: '*.exe'
-  name: VNVizitiu
-- path: '*.exe.config'
-  name: VNVizitiu
+- path: '**\*.exe'
+  name: Tool
+- path: '**\*.exe.config'
+  name: Tool
