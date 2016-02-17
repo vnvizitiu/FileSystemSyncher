@@ -1,9 +1,7 @@
-version: 1.0.{build}
+version: 0.2.{build}
 os: Visual Studio 2015 RC
 build:
   verbosity: detailed
 artifacts:
 - path: '**\*.exe'
-  name: Tool
-- path: '**\*.exe.config'
   name: Tool
