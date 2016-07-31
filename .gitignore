@@ -6,3 +6,9 @@
 /FileSystemSyncher/FileSystemSyncher.Console/bin/Debug
 /FileSystemSyncher/FileSystemSyncher.Console/obj/Debug
 /FileSystemSyncher/FileSystemSyncher.startup.suo
+/FileSystemSyncher/FileSystemSyncher.Tests/obj/Debug
+/FileSystemSyncher/FileSystemSyncher.Commons/bin/Debug
+/FileSystemSyncher/FileSystemSyncher.Commons/obj/Debug
+/FileSystemSyncher/FileSystemSyncher.Tests/bin/Debug
+/FileSystemSyncher/packages/FluentAssertions.4.12.0
+/FileSystemSyncher/packages/NUnit.2.6.0.12054

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemSyncher.Console", "FileSystemSyncher.Console\FileSystemSyncher.Console.csproj", "{AEADC9F6-A783-4F89-9BC8-DD8796798C58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemSyncher.Tests", "FileSystemSyncher.Tests\FileSystemSyncher.Tests.csproj", "{2C7D53E7-D3F7-45F1-83ED-0D1FD7B7B941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemSyncher.Commons", "FileSystemSyncher.Commons\FileSystemSyncher.Commons.csproj", "{DC83D85C-574F-4015-A9AE-528E47CD2FFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{AEADC9F6-A783-4F89-9BC8-DD8796798C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEADC9F6-A783-4F89-9BC8-DD8796798C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEADC9F6-A783-4F89-9BC8-DD8796798C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7D53E7-D3F7-45F1-83ED-0D1FD7B7B941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7D53E7-D3F7-45F1-83ED-0D1FD7B7B941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7D53E7-D3F7-45F1-83ED-0D1FD7B7B941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7D53E7-D3F7-45F1-83ED-0D1FD7B7B941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC83D85C-574F-4015-A9AE-528E47CD2FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC83D85C-574F-4015-A9AE-528E47CD2FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC83D85C-574F-4015-A9AE-528E47CD2FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC83D85C-574F-4015-A9AE-528E47CD2FFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

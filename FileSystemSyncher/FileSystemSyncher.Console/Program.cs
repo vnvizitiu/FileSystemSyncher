@@ -1,8 +1,8 @@
 ﻿namespace FileSystemSyncher.Console
 {
     using System;
-    using System.Configuration;
     using System.IO;
+    using Commons;
 
     public static class Program
     {
@@ -10,38 +10,17 @@
         {
             try
             {
-                string sourcePath = ConfigurationManager.AppSettings["SourcePath"];
-                if (!string.IsNullOrWhiteSpace(sourcePath))
+                IConfigurationProvider configurationProvider = new ConfigFileConfigurationProvider();
+                ConfigurationOptions configurationOptions = configurationProvider.GetOptions();
+
+                if (!configurationOptions.DestinationDirectory.Exists)
                 {
-                    sourcePath = Path.GetFullPath(sourcePath);
-                    if (!Directory.Exists(sourcePath))
-                    {
-                        throw new ConfigurationErrorsException("The folder in the source path does not exist");
-                    }
-                }
-                else
-                {
-                    throw new ConfigurationErrorsException("There was no source path set");
+                    configurationOptions.DestinationDirectory.Create();
                 }
 
-                string destinationPath = ConfigurationManager.AppSettings["DestinationPath"];
-                if (!string.IsNullOrWhiteSpace(destinationPath))
+                foreach (FileInfo sourceFile in configurationOptions.SourceDirectory.EnumerateFiles("*", SearchOption.AllDirectories))
                 {
-                    destinationPath = Path.GetFullPath(destinationPath);
-                    if (!Directory.Exists(destinationPath))
-                    {
-                        Directory.CreateDirectory(destinationPath);
-                    }
-                }
-                else
-                {
-                    throw new ConfigurationErrorsException("There was no destination path set");
-                }
-
-                DirectoryInfo sourceDirectory = new DirectoryInfo(sourcePath);
-                foreach (FileInfo sourceFile in sourceDirectory.EnumerateFiles("*", SearchOption.AllDirectories))
-                {
-                    string destinationFilePath = sourceFile.FullName.Replace(sourcePath, destinationPath);
+                    string destinationFilePath = sourceFile.FullName.Replace(configurationOptions.SourceDirectory.FullName, configurationOptions.DestinationDirectory.FullName);
                     FileInfo destinationFile = new FileInfo(destinationFilePath);
 
                     if (!destinationFile.Exists || sourceFile.Length != destinationFile.Length ||
