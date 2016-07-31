@@ -3,4 +3,4 @@ os: Visual Studio 2015 RC
 build:
   verbosity: detailed
 before_build:
-  - nuget restore
+  - nuget restore FileSystemSyncher\FileSystemSyncher.sln
