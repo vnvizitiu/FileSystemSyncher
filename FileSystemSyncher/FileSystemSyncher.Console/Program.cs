@@ -1,17 +1,16 @@
-﻿using System;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-
-namespace FileSystemSyncher.Console
+﻿namespace FileSystemSyncher.Console
 {
-    class Program
+    using System;
+    using System.Configuration;
+    using System.IO;
+
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             try
             {
-                var sourcePath = ConfigurationManager.AppSettings["SourcePath"];
+                string sourcePath = ConfigurationManager.AppSettings["SourcePath"];
                 if (!string.IsNullOrWhiteSpace(sourcePath))
                 {
                     sourcePath = Path.GetFullPath(sourcePath);
@@ -25,7 +24,7 @@ namespace FileSystemSyncher.Console
                     throw new ConfigurationErrorsException("There was no source path set");
                 }
 
-                var destinationPath = ConfigurationManager.AppSettings["DestinationPath"];
+                string destinationPath = ConfigurationManager.AppSettings["DestinationPath"];
                 if (!string.IsNullOrWhiteSpace(destinationPath))
                 {
                     destinationPath = Path.GetFullPath(destinationPath);
@@ -39,23 +38,27 @@ namespace FileSystemSyncher.Console
                     throw new ConfigurationErrorsException("There was no destination path set");
                 }
 
-                var sourceDirectory = new DirectoryInfo(sourcePath);
-                foreach (var sourceFile in sourceDirectory.EnumerateFiles("*", SearchOption.AllDirectories))
+                DirectoryInfo sourceDirectory = new DirectoryInfo(sourcePath);
+                foreach (FileInfo sourceFile in sourceDirectory.EnumerateFiles("*", SearchOption.AllDirectories))
                 {
-                    var destinationFilePath = sourceFile.FullName.Replace(sourcePath, destinationPath);
-                    var destinationFile = new FileInfo(destinationFilePath);
+                    string destinationFilePath = sourceFile.FullName.Replace(sourcePath, destinationPath);
+                    FileInfo destinationFile = new FileInfo(destinationFilePath);
 
                     if (!destinationFile.Exists || sourceFile.Length != destinationFile.Length ||
                         sourceFile.LastWriteTime != destinationFile.LastWriteTime)
                     {
-                        Directory.CreateDirectory(destinationFile.DirectoryName);
-                        File.Copy(sourceFile.FullName, destinationFilePath, true);
+                        if (destinationFile.DirectoryName != null)
+                        {
+                            Directory.CreateDirectory(destinationFile.DirectoryName);
+                            File.Copy(sourceFile.FullName, destinationFilePath, true);
+                            Console.WriteLine(destinationFilePath);
+                        }
                     }
                 }
             }
             catch (Exception e)
             {
-                System.Console.WriteLine(e);
+                Console.WriteLine(e);
             }
         }
     }
