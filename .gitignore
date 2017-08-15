@@ -3,13 +3,20 @@
 ################################################################################
 
 /FileSystemSyncher/.vs/FileSystemSyncher/v14
-/FileSystemSyncher/FileSystemSyncher.Console/bin/Debug
-/FileSystemSyncher/FileSystemSyncher.Console/obj/Debug
+/FileSystemSyncher/FileSystemSyncher.Console/bin
+/FileSystemSyncher/FileSystemSyncher.Console/obj
 /FileSystemSyncher/FileSystemSyncher.startup.suo
-/FileSystemSyncher/FileSystemSyncher.Tests/obj/Debug
-/FileSystemSyncher/FileSystemSyncher.Commons/bin/Debug
-/FileSystemSyncher/FileSystemSyncher.Commons/obj/Debug
-/FileSystemSyncher/FileSystemSyncher.Tests/bin/Debug
+/FileSystemSyncher/FileSystemSyncher.Tests/obj
+/FileSystemSyncher/FileSystemSyncher.Commons/bin
+/FileSystemSyncher/FileSystemSyncher.Commons/obj
+/FileSystemSyncher/FileSystemSyncher.Tests/bin
 /FileSystemSyncher/packages/FluentAssertions.4.12.0
 /FileSystemSyncher/packages/NUnit.2.6.0.12054
 /FileSystemSyncher/_ReSharper.Caches/ReSharperPlatformVs146.FileSystemSyncher.00
+/.vs
+/FileSystemSyncher/.vs/FileSystemSyncher/v15
+/FileSystemSyncher/_ReSharper.Caches/ReSharperPlatformVs158_3c333f99.FileSystemSyncher.00
+/FileSystemSyncher/FileSystemSyncher.Tests/obj
+/FileSystemSyncher/FileSystemSyncher.Console/obj
+/FileSystemSyncher/FileSystemSyncher.Commons/obj
+*.user
