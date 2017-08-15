@@ -1,9 +1,8 @@
-﻿namespace FileSystemSyncher.Console
+﻿namespace FileSystemSyncher.Commons
 {
     using System.Configuration;
-    using Commons;
 
-    public class ConfigFileConfigurationProvider : IConfigurationProvider
+    public sealed class ConfigFileConfigurationProvider : IConfigurationProvider
     {
         public ConfigurationOptions GetOptions()
         {
