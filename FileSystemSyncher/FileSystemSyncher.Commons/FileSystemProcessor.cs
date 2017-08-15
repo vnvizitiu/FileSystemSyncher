@@ -9,20 +9,26 @@
 
         public FileSystemProcessor(IConfigurationProvider configurationProvider)
         {
-            _configurationProvider = configurationProvider ?? throw new ArgumentNullException(nameof(configurationProvider));
+            _configurationProvider = configurationProvider
+                                     ?? throw new ArgumentNullException(nameof(configurationProvider));
         }
 
         public void Run()
         {
             ConfigurationOptions configurationOptions = _configurationProvider.GetOptions();
+            FileSystemEnumerator fileSystemEnumerator = FileSystemEnumerator.CreateInstance();
 
-            foreach (FileInfo sourceFile in configurationOptions.SourceDirectory.EnumerateFiles("*", SearchOption.AllDirectories))
+            foreach (FileInfo sourceFile in fileSystemEnumerator.EnumerateFileBreathFirst(
+                configurationOptions.SourceDirectory))
             {
-                string destinationFilePath = sourceFile.FullName.Replace(configurationOptions.SourceDirectory.FullName, configurationOptions.DestinationDirectory.FullName);
+                string destinationFilePath = sourceFile.FullName.Replace(
+                    configurationOptions.SourceDirectory.FullName,
+                    configurationOptions.DestinationDirectory.FullName);
+
                 FileInfo destinationFile = new FileInfo(destinationFilePath);
 
-                if (!destinationFile.Exists || sourceFile.Length != destinationFile.Length ||
-                    sourceFile.LastWriteTime != destinationFile.LastWriteTime)
+                if (!destinationFile.Exists || sourceFile.Length != destinationFile.Length
+                    || sourceFile.LastWriteTime != destinationFile.LastWriteTime)
                 {
                     if (destinationFile.DirectoryName != null)
                     {

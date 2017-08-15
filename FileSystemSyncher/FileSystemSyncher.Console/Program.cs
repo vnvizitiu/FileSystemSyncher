@@ -1,6 +1,7 @@
 ﻿namespace FileSystemSyncher.Console
 {
     using System;
+
     using Commons;
 
     public static class Program

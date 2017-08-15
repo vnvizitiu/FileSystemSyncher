@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ConfigFileConfigurationProvider.cs" />
     <Compile Include="ConfigurationOptions.cs" />
+    <Compile Include="FileSystemEnumerator.cs" />
     <Compile Include="FileSystemProcessor.cs" />
     <Compile Include="IConfigurationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
