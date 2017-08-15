@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="ConfigFileConfigurationProvider.cs" />
     <Compile Include="ConfigurationOptions.cs" />
+    <Compile Include="CopyReportStrategy.cs" />
+    <Compile Include="FileCopyStrategy.cs" />
     <Compile Include="FileProcessingStrategyBase.cs" />
     <Compile Include="FileSystemEnumerator.cs" />
     <Compile Include="FileSystemProcessor.cs" />
