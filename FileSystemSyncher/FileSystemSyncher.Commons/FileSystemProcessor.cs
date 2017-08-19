@@ -21,7 +21,7 @@
         public void Run()
         {
             ConfigurationOptions configurationOptions = _configurationProvider.GetOptions();
-            FileSystemEnumerator fileSystemEnumerator = FileSystemEnumerator.CreateInstance();
+            FileSystemEnumerator fileSystemEnumerator = FileSystemEnumerator.CreateInstance(configurationOptions.Whitelist, configurationOptions.BlackList);
 
             foreach (FileProcessingStrategyBase fileProcessingStrategyBase in _strategies)
             {

@@ -1,7 +1,9 @@
 ﻿namespace FileSystemSyncher.Commons
 {
+    using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
+    using System.Linq;
 
     public sealed class ConfigurationOptions
     {
@@ -21,10 +23,17 @@
             }
             
             DestinationDirectory = new DirectoryInfo(destinationPath);
+
+            Whitelist = Enumerable.Empty<string>();
+            BlackList = Enumerable.Empty<string>();
         }
 
         public DirectoryInfo SourceDirectory { get; }
 
         public DirectoryInfo DestinationDirectory { get; }
+
+        public IEnumerable<string> Whitelist { get; set; }
+
+        public IEnumerable<string> BlackList { get; set; }
     }
 }

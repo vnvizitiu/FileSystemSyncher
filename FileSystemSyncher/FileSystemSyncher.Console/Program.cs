@@ -23,7 +23,7 @@
                     {
                         numberOfFileUpdated++;
                         Console.WriteLine(
-                            $"[{numberOfFileToUpdate / numberOfFileToUpdate}] ({(numberOfFileUpdated / (double)numberOfFileToUpdate):P})");
+                            $"[{numberOfFileUpdated} / {numberOfFileToUpdate}] ({(numberOfFileUpdated / (double)numberOfFileToUpdate):P})");
                     };
 
                 FileProcessingStrategyBase[] strategies = { copyReportStrategy, fileCopyStrategy };
