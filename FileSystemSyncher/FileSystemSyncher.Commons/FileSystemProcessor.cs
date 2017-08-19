@@ -25,7 +25,7 @@
 
             foreach (FileProcessingStrategyBase fileProcessingStrategyBase in _strategies)
             {
-                foreach (FileInfo sourceFile in fileSystemEnumerator.EnumerateFileBreathFirst(
+                foreach (FileInfo sourceFile in fileSystemEnumerator.EnumerateFilesBreathFirst(
                     configurationOptions.SourceDirectory))
                 {
                     string destinationFilePath = sourceFile.FullName.Replace(

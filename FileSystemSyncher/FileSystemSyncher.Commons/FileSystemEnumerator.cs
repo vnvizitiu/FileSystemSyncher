@@ -25,16 +25,16 @@
             return new FileSystemEnumerator(whitelist, blackList);
         }
 
-        internal IEnumerable<FileInfo> EnumerateFileBreathFirst(DirectoryInfo directoryInfo)
+        internal IEnumerable<FileInfo> EnumerateFilesBreathFirst(DirectoryInfo directoryInfo)
         {
             foreach (FileInfo file in directoryInfo.EnumerateFiles())
             {
-                if (_whitelist.Any(path => IsFileWhitelisted(path, file)))
+                if (_whitelist.Any(path => IsFileOrExtensionPresent(path, file)))
                 {
                     yield return file;
                 }
 
-                if (_blackList.Any(path => IsFileBlacklisted(path, file)))
+                if (_blackList.Any(path => IsFileOrExtensionPresent(path, file)))
                 {
                     continue;
                 }
@@ -47,32 +47,12 @@
             {
                 if (ShouldEnumerateDirectory(subDir))
                 {
-                    foreach (FileInfo file in EnumerateFileBreathFirst(subDir))
+                    foreach (FileInfo file in EnumerateFilesBreathFirst(subDir))
                     {
                         yield return file;
                     }
                 }
             }
-        }
-
-        private bool IsFileBlacklisted(string path, FileInfo file)
-        {
-            if (IsFileOrExtensionPresent(path, file))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool IsFileWhitelisted(string path, FileInfo file)
-        {
-            if (IsFileOrExtensionPresent(path, file))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private bool IsFileOrExtensionPresent(string path, FileInfo file)
